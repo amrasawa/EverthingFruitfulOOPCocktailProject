@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public class FruitMenu extends javax.swing.JFrame {
 
     private Blender blender;
-
+    private boolean fruitFlag=true;
     /**
      * Creates new form FruitMenu
      */
@@ -240,66 +240,75 @@ public class FruitMenu extends javax.swing.JFrame {
     private void ContinueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinueButtonActionPerformed
         try {
             if (AppleButton.isSelected()) {
-
+                fruitFlag=false;
                 blender.addIngredient(new Apple(3));
                 // blender.addIgredient(new Apple(2));
 
             }
             if (BananaButton.isSelected()) {
-
+                fruitFlag=false;
                 blender.addIngredient(new Banana(3));
                 // blender.addIgredient(new Apple(2));
 
             }
             if (GrapefruitButton.isSelected()) {
+                                fruitFlag=false;
 
                 blender.addIngredient(new Grapefruits(3));
                 // blender.addIgredient(new Apple(2));
 
             }
             if (BlueberryButton.isSelected()) {
+                                fruitFlag=false;
 
                 blender.addIngredient(new Blueberry(3));
                 // blender.addIgredient(new Apple(2));
 
             }
             if (DatesButton.isSelected()) {
+                                fruitFlag=false;
 
                 blender.addIngredient(new Dates(3));
                 // blender.addIgredient(new Apple(2));
 
             }
             if (MangoButton.isSelected()) {
+                                fruitFlag=false;
 
                 blender.addIngredient(new Mango(3));
                 // blender.addIgredient(new Apple(2));
 
             }
             if (OrangeButton.isSelected()) {
+                                fruitFlag=false;
 
                 blender.addIngredient(new Orange(3));
                 // blender.addIgredient(new Apple(2));
 
             }
             if (PineappleButton.isSelected()) {
+                                fruitFlag=false;
 
-                blender.addIngredient(new Pineapple(3));
+                    blender.addIngredient(new Pineapple(3));
                 // blender.addIgredient(new Apple(2));
 
             }
             if (RoseberryButton.isSelected()) {
+                                fruitFlag=false;
 
                 blender.addIngredient(new Raspberry(3));
                 // blender.addIgredient(new Apple(2));
 
             }
             if (StrawberryButton.isSelected()) {
+                                fruitFlag=false;
 
                 blender.addIngredient(new Strawberry(3));
                 // blender.addIgredient(new Apple(2));
 
             }
             if (WatermelonButton.isSelected()) {
+                                fruitFlag=false;
 
                 blender.addIngredient(new Watermelon(3));
                 // blender.addIgredient(new Apple(2));
@@ -312,12 +321,18 @@ public class FruitMenu extends javax.swing.JFrame {
             dispose();
             return;
         }
+        if (fruitFlag)
+        {
+            JOptionPane.showMessageDialog(this, "You must Choose atleast one fruit!", "Error", JOptionPane.ERROR_MESSAGE);
+           
+        }
+        else{
         System.out.println(blender.getIngredientsString());
         LiquidsGUI liquid = new LiquidsGUI(blender);
         liquid.setData(blender);
         liquid.show();
         dispose();
-
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_ContinueButtonActionPerformed
 
